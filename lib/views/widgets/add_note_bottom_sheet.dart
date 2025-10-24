@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_8/views/widgets/custom_button.dart';
-import 'package:flutter_application_8/views/widgets/custom_text_tield.dart';
+import 'package:flutter_application_8/views/widgets/custom_text_field.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
   const AddNoteBottomSheet({super.key});
@@ -13,9 +13,9 @@ class AddNoteBottomSheet extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 32),
-            CustomTextTield(hint: "Title"),
+            CustomTextField(hint: "Title"),
             SizedBox(height: 20),
-            CustomTextTield(hint: "content", maxlines: 5),
+            CustomTextField(hint: "content", maxlines: 5),
             SizedBox(height: 35),
             CustomButtom(),
             SizedBox(height: 50),
