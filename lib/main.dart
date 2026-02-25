@@ -17,7 +17,7 @@ class NotesApp extends StatelessWidget {
         fontFamily: "Poppins",
       ),
 
-      home: NotesView(),
+      home: const NotesView(),
     );
   }
 }
