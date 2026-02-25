@@ -13,7 +13,17 @@ class AddNoteBottomSheet extends StatelessWidget {
       ),
       child: Column(
         spacing: 32,
-        children: [CustomTextField(), CustomTextField()],
+        children: [
+          CustomTextField(
+            labelText: "Title",
+            hintText: "ادخل العنوان هنا ",
+          ),
+          CustomTextField(
+            labelText: "Content",
+            hintText: "أدخل النص واو المحتوي هنا ",
+            maxLines: 4,
+          ),
+        ],
       ),
     );
   }
