@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_10/widgets/custom_app_bar.dart';
 import 'package:flutter_application_10/widgets/custom_text_field.dart';
-import 'package:flutter_application_10/widgets/edit_note_view_body.dart';
 
 class EditNoteView extends StatelessWidget {
   const EditNoteView({super.key});
