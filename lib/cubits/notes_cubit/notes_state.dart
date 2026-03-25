@@ -5,16 +5,16 @@ sealed class NotesState {}
 
 final class NotesInitial extends NotesState {}
 
-final class AddNoteLoading extends NotesState {}
+final class NotesLoading extends NotesState {}
 
-final class AddNoteSeccess extends NotesState {
+final class NotesSeccess extends NotesState {
   final List<NoteModel> notes;
 
-  AddNoteSeccess({required this.notes});
+  NotesSeccess({required this.notes});
 }
 
-final class AddNoteFailure extends NotesState {
+final class NotesFailure extends NotesState {
   final String errMessage;
 
-  AddNoteFailure({required this.errMessage});
+  NotesFailure({required this.errMessage});
 }
