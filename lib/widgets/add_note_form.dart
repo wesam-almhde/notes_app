@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_10/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:flutter_application_10/models/note_model.dart';
 import 'package:flutter_application_10/widgets/custom_button.dart';
 import 'package:flutter_application_10/widgets/custom_text_field.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({super.key});
@@ -37,13 +40,27 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hintText: "أدخل النص واو المحتوي هنا ",
             maxLines: 4,
           ),
-          CustomButton(
-            onTap: () {
-              if (formkey.currentState!.validate()) {
-                formkey.currentState!.save();
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-              }
+          BlocBuilder<AddNoteCubit, AddNoteState>(
+            builder: (context, state) {
+              return CustomButton(
+                isLoading: state is AddNoteLoading ? true : false,
+                onTap: () {
+                  if (formkey.currentState!.validate()) {
+                    formkey.currentState!.save();
+                    var noteModel = NoteModel(
+                      title: title!,
+                      subtitle: subTitle!,
+                      date: DateTime.now().toString(),
+                      color: Colors.blue.toARGB32(),
+                    );
+                    BlocProvider.of<AddNoteCubit>(
+                      context,
+                    ).addNote(noteModel);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                  }
+                },
+              );
             },
           ),
         ],
